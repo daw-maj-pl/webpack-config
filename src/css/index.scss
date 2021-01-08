@@ -1,0 +1,60 @@
+$yellowColor: green;
+$blackColor: black;
+$fontSize: 16px;
+$bigFontSize: 3 * $fontSize;
+$borderBottom: 1px solid $blackColor;
+
+@mixin center($flexDirection, $justifyContent, $alignItems) {
+  display: flex;
+  flex-direction: $flexDirection;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+
+.wrapper {
+  @include center(initial, center, center);
+  background-color: lightsalmon;
+  $internalFontSize: 80px;
+  font-size: $fontSize;
+  h1 {
+    color: violet;
+    font-size: $bigFontSize;
+  }
+  h2 {
+    color: darkcyan;
+    border-bottom: $borderBottom;
+  }
+  a {
+    color: $yellowColor;
+    font-size: $internalFontSize;
+    &:hover {
+      color: brown;
+    }
+  }
+}
+
+.sampleClass {
+  &__block {
+    color: $yellowColor;
+  }
+}
+
+.container {
+  background-color: lightsalmon;
+  @include center(column, center, center);
+  .col1,
+  .col2 {
+    height: 50px;
+    @include center(initial, flex-start, flex-end);
+  }
+}
+
+.proba {
+  width: 458px;
+  height: 305px;
+  background: url('../assets/img/test.jpg');
+}
+
+.autoprefixer {
+  user-select: none;
+}
